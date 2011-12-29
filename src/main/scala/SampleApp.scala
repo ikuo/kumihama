@@ -1,0 +1,30 @@
+import net.townym.kumihama._
+
+object m2g extends M2G with M2GDebug {
+
+  object params extends M2GParams {
+    // mongodb query
+    def runQuery = {
+      import com.mongodb.casbah.Imports._
+      val coll = MongoConnection("127.0.0.1", 27017)("dbname")("collection_name")
+      val js = MongoDBObject
+      val q  = js("column1"    -> "val1",
+                  "column2" -> js("$ne" -> "val2"))
+      coll.find( q, js() ).sort(js("time" -> 1))
+    }
+
+    // result fields
+    val keys = List("column1", "column2", "_id")
+
+    def auth(ctx: GDataAuth#Context) {
+      //authWithPassword(ctx, "matzun@gmail.com", null)
+      authWithOAuth(ctx)
+    }
+
+    val bookName = "my_spread_sheet_name"
+    val sheetName = "my_worksheet_name"
+  }
+
+  // main
+  def main(args:Array[String]) { cliMain(params, args) }
+}
