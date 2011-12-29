@@ -54,12 +54,13 @@ trait M2G extends GDataAuth {
       params.keys.foreach(key => { row.getCustomElements().setValueLocal( key.filter(_ != '_'), obj.get(key).toString ) } )
       rows.insert(row)
     }
-    println
+    println(" - done")
   }
 
   // default main for CLI
   def cliMain(params:M2GParams, args :Array[String]) {
     def print_usage { println("Usage: sbt run") }
+    println("Started on " + new java.util.Date())
     args.size match {
       case 0 => saveToGData(params)
       case _ => print_usage
