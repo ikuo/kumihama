@@ -8,8 +8,8 @@
 * Download gdata-*.jar of [gdata-java-client](http://code.google.com/p/gdata-java-client/downloads/list) into lib/ directory
 
 ## Configuring
-1. Rename `src/main/scala/SampleApp.scala` (e.g. to `MyApp.scala`)
-2. Edit the `MyApp.scala` to meet your 1) MongoDB query and 2) book/worksheet name of Google Spreadsheet
+1. Rename `src/main/scala/MyApp.scala.sample` to `MyApp.scala`
+2. Edit `MyApp.scala` to meet your 1) MongoDB query and 2) book/worksheet name of Google Spreadsheet
 3. Prepare a worksheet
   - Create spreadsheet/worksheet of Google Spreadsheet with the name specified in your `MyApp.scala`
   - Delete all empty rows from the worksheet
