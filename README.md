@@ -37,3 +37,21 @@ Put `./oauth_access.token` and the all-in-one jar into a directory (as $KUMIHAMA
 Execute the following command in a batch (e.g. cron):
 
     cd $KUMIHAMA_APP1 && java -jar KumihamaApp-assembly-1.0.jar
+
+## Known issues
+### sleep interrupted
+It throws InterruptedException at the end of run:
+
+    ?x??: sleep interrupted
+    java.lang.InterruptedException: sleep interrupted
+            at java.lang.Thread.sleep(Native Method)
+            at com.mongodb.DBApiLayer$DBCleanerThread.run(DBApiLayer.java:493)
+            at java.lang.Thread.run(Thread.java:680)
+    2012/01/17 9:14:09 com.mongodb.DBApiLayer$DBCleanerThread run
+    ?x??: sleep interrupted
+    java.lang.InterruptedException: sleep interrupted
+            at java.lang.Thread.sleep(Native Method)
+            at com.mongodb.DBApiLayer$DBCleanerThread.run(DBApiLayer.java:493)
+            at java.lang.Thread.run(Thread.java:680)
+
+See also: http://groups.google.com/group/liftweb/msg/c99b8d67a9450c55
